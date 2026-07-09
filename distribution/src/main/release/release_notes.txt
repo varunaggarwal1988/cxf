@@ -1,4 +1,4 @@
-Apache CXF 3.5.11 Release Notes
+Apache CXF 3.5.11.1 Release Notes
 
 1. Overview
 
@@ -31,7 +31,7 @@ for further information and requirements for upgrading from earlier
 versions of CXF.
 
 
-3.5.11 fixes over 5 JIRA issues reported by users and the community.
+3.5.11.1 fixes for CVE remediation.
 
 
 2. Installation Prerequisites 
@@ -73,9 +73,6 @@ for caveats when upgrading.
 
 7. Specific issues, features, and improvements fixed in this version
 
-** Bug
-    * [CXF-8629] - AsyncHTTPConduit (hc5) should support chunked request / response
-    * [CXF-8992] - WebClient.fromClient() broken due to garbage collection
-    * [CXF-9057] - Chunked Stream is closed regularly when Exception is thrown
-    * [CXF-9105] - ConcurrentModificationException in org.apache.cxf.ext.logging.event when iterating over principals
-    * [CXF-9110] - Memory leak in DelayedCleanerImpl.queue when LoggingFeature is enabled
+** CVE
+    * [CVE-2026-50645] - No restriction on the amount of attachment headers that a message can contain when being deserialized by Apache CXF, which can lead to uncontrolled resource consumption or a denial of service attack
+    * [CVE-2026-49875] - Apache CXF's EndpointReferenceUtils and W3CMultiSchemaFactory classes construct a SAXParserFactory without the necessary JAXP hardening configurations, enabling out-of-band (OOB) external entity resolution
